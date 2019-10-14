@@ -14,13 +14,9 @@ function asyncHandler(cb){
 }
 
 // Get /books request that shows the full list of books
-router.get('/books', asyncHandler(async (req, res) => {
-  let books = await Book.findAll();
-  if (books) {
-    res.render('index', { books });
-  } else {
-    res.render('page-not-found');
-  }
+router.get('/', asyncHandler(async (req, res) => {
+  const books = await Book.findAll();
+  res.render('index', { books });
 }));
 
 module.exports = router;
