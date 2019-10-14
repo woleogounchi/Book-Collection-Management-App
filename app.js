@@ -1,7 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-// const port = 3000;
 
 const routes = require('./routes/index');
 const books = require('./routes/books');
