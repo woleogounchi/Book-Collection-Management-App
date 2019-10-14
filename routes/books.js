@@ -23,4 +23,4 @@ router.get('/books', asyncHandler(async (req, res) => {
   }
 }));
 
-module.exports = books;
+module.exports = router;
