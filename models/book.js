@@ -60,11 +60,6 @@ module.exports = (sequelize) => {
     },
     // Model options object 
     { 
-      tableName: 'my_movies_table', // table name change to custom
-      modelName: 'movie', // set model name to 'movie'; table name will be 'movies' instead of by default 'Movies'
-      freezeTableName: true, // disable plural table names (Ex: change the table name from 'Movies' to 'Movie'.)
-      timestamps: false, // disable timestamps
-      paranoid: true, // enable "soft" deletes
       sequelize
     }
   );
