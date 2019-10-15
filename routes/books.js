@@ -1,5 +1,8 @@
+// Require express
 const express = require('express');
 const router = express.Router();
+
+// Book model
 const Book = require('../models').Book;
 
 /* Handler function to wrap each route. */

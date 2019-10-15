@@ -1,7 +1,9 @@
+// Require the necessary dependencies
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 
+// Require the routes
 const routes = require('./routes/index');
 const books = require('./routes/books');
 
@@ -11,8 +13,11 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// Body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
