@@ -1,0 +1,34 @@
+extends layout
+
+block content 
+
+  h1= title
+  form(action="/books/new", method="post")
+    p
+      label(for="title") Title
+      if errors 
+            input#title(name='title', type='text', value=`${book.title}`)
+      else
+          input#title(name='title', type='text')
+    p
+      label(for='author') Author
+      if errors
+          input#author(name='author', type='text', value=`${book.author}`)
+      else
+          input#author(name='author', type='text')
+    p
+      label(for='genre') Genre
+      if errors
+          input#genre(name='genre', type='text', value=`${book.genre}`)
+      else
+          input#genre(name='genre', type='text')
+    p
+      label(for='year') Year
+      if errors
+          input#year(name='year', type='text', value=`${book.year}`)
+      else
+          input#year(name='year', type='text')
+    p
+      input(type='submit', value='Create New Book')
+    p
+      a.button(href='/books') Cancel

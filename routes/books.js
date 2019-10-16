@@ -23,8 +23,8 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 // Get /books/new that creates a new book form
-router.get('/books/new', (req, res) => {
-  res.render("new-book", { article: {}, title: "New Book" });
+router.get('/new', (req, res) => {
+  res.render("new-book", { title: "New Book" });
 });
 
 module.exports = router;
