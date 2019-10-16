@@ -18,8 +18,13 @@ function asyncHandler(cb){
 
 // Get /books request that shows the full list of books
 router.get('/', asyncHandler(async (req, res) => {
-  const books = await Book.findAll();
-  res.render('index', { books });
-}));
+  const books = await Book.findAll({ order: [["createdAt", "DESC"]] });
+  res.render('index', { books, title: "My Library" });
+}))
+
+// Get /books/new that creates a new book form
+router.get('/books/new', (req, res) => {
+  res.render("new-book", { article: {}, title: "New Book" });
+});
 
 module.exports = router;
