@@ -49,17 +49,17 @@ router.post('/new', asyncHandler(async (req, res) => {
 }));
 
 // Get /books/:id request that shows book detail form
-router.get("/:id/edit", asyncHandler(async(req, res) => {
+router.get("/:id", asyncHandler(async (req, res, next) => {
   const book = await Book.findByPk(req.params.id);
-  if(book) {
+  if (book) {
     const bookData = {
-      pageTitle: "Book Detail", 
-      book: book.dataValues, 
-      errors: error.errors
-    }
-    res.render("book-detail", bookData);      
+      pageTitle: "Update Book", 
+      id: book.dataValues.id, 
+      book: book.dataValues
+    };
+    res.render("update-book", bookData);
   } else {
-    res.status(404).render("page-not-found", { title: "Page Not Found" });
+    res.status(404).render("page-not-found", { pageTitle: "Page Not Found" });
   }
 }));
 
