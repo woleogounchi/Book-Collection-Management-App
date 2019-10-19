@@ -89,4 +89,31 @@ router.post('/:id', asyncHandler(async (req, res, next) => {
   }
 }));
 
+// Get /books/:id/delete request that displays a book deletion form
+router.get("/:id/delete", asyncHandler(async (req, res, next) => {
+  const book = await Book.findByPk(req.params.id);
+  if(book) {
+    const bookData = {
+      title: "Delete Book", 
+      id: book.dataValues.id, 
+      book: book.dataValues,
+      errors: error.errors
+    };
+    res.render("delete", bookData);
+  } else {
+    res.status(404).render("page-not-found", { title: "Page Not Found" });
+  }
+}));
+
+// Post /books/:id/delete request that deletes a book
+router.post('/:id/delete', asyncHandler(async (req ,res, next) => {
+  const book = await Book.findByPk(req.params.id);
+  if(book) {
+    await book.destroy();
+    res.redirect("/books");
+  } else {
+    res.status(404).render("page-not-found", { title: "Page Not Found" });
+  }
+}));
+
 module.exports = router;
