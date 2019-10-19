@@ -1,0 +1,7 @@
+if(errors)
+  .error
+    h2 Please complete all the required fields.
+    ul
+      each error in errors
+        li 
+        = error.message

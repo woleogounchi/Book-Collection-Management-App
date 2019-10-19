@@ -52,8 +52,9 @@ module.exports = (sequelize) => {
         type: Sequelize.INTEGER,
         allowNull: false,
         validate: {
-          notNull: {
-            msg: 'Please provide a value for "year"',
+          len: {
+            args: 4,
+            msg: 'Please provide a for 4-digits value for "year"',
           },
         },
       },
