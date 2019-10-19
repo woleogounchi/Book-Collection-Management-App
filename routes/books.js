@@ -93,11 +93,9 @@ router.post('/:id', asyncHandler(async (req, res, next) => {
 router.get("/:id/delete", asyncHandler(async (req, res, next) => {
   const book = await Book.findByPk(req.params.id);
   if(book) {
-    const bookData = {
+    const bookData = { 
       title: "Delete Book", 
-      id: book.dataValues.id, 
-      book: book.dataValues,
-      errors: error.errors
+      book: book.dataValues 
     };
     res.render("delete", bookData);
   } else {
