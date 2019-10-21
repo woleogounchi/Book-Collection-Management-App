@@ -78,7 +78,7 @@ router.post('/:id', asyncHandler(async (req, res) => {
       book = await Book.build(req.body);
       const bookData = {
         title: "Update Book", 
-        id: book.dataValues.id, 
+        id: req.params.id , 
         book: book.dataValues,
         errors: error.errors
       };
